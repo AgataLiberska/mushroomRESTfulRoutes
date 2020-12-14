@@ -17,6 +17,11 @@
         <% } %>
     </p>
     <a href="/mushrooms/<%= mushroom._id %>/edit">Edit Mushroom</a>
+    
+    <form action="/mushrooms/<%=mushroom._id%>?_method=DELETE" method="POST">
+        <button>Delete Mushroom</button>
+    </form>
+    
     <footer>
         <a href="/">Home</a>
         <a href="/mushrooms">All Mushrooms</a>

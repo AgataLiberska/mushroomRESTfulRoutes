@@ -59,6 +59,10 @@ app.put('/mushrooms/:id', async (req, res) => {
     res.redirect(`/mushrooms/${mushroom._id}`)
 })
 
+app.delete('/mushrooms/:id', async (req, res) => {
+    await Mushroom.findByIdAndDelete(req.params.id)
+    res.redirect('/mushrooms')
+})
 
 app.listen(3000, () => {
     console.log('Connected to server!')
