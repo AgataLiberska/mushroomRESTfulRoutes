@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= mushroom.title %></title>
+</head>
+<body>
+    <h1>You can edit your mushroom memories here</h1>
+    <form action="/mushrooms/<%=mushroom._id%>?_method=PUT" method="POST">
+        <div>
+            <label for="title">Mushroom species</label>
+            <input type="text" id="title" name="mushroom[title]" placeholder="Species" value="<%=mushroom.title%>">
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" name="mushroom[location]" placeholder="Where did you find it?" value="<%=mushroom.location%>">
+        </div>
+        <div>
+            <label for="dateFound">Date found</label>
+            <input type="datetime-local" id="dateFound" name="mushroom[dateFound]" value="<%=mushroom.dateFound%>">
+        </div>
+        <div>
+            <p>This mushroom is:</p>
+            <label for="edible">edible</label>
+            <input type="radio" name="mushroom[edible]" value="true" id="edible"
+                <%= mushroom.edible === true ? "checked" : "" %>>
+            <label for="inedible">inedible</label>
+            <input type="radio" id="inedible" name="mushroom[edible]" value="false"
+                <%= mushroom.edible === false ? "checked" : "" %>>
+        </div>
+        <button>Save your changes</button>
+    </form>
+    <a href="/mushrooms/<%=mushroom.id%>">Cancel</a>
+</body>
+</html>

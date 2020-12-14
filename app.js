@@ -3,11 +3,13 @@ const app = express()
 const mongoose  = require('mongoose')
 const path = require('path')
 const Mushroom = require('./models/mushroom')
+const methodOverride = require('method-override')
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 
 
 mongoose.connect('mongodb://localhost:27017/myMushrooms', {
@@ -47,8 +49,14 @@ app.get('/mushrooms/:id', async (req, res) => {
     res.render('mushrooms/show', { mushroom })
 })
 
-app.get('/mushrooms/:id/edit', (req,res) => {
-    res.render('mushrooms/edit')
+app.get('/mushrooms/:id/edit', async (req,res) => {
+    const mushroom = await Mushroom.findById(req.params.id)
+    res.render('mushrooms/edit', { mushroom }) 
+})
+
+app.put('/mushrooms/:id', async (req, res) => {
+    const mushroom = await Mushroom.findByIdAndUpdate(req.params.id, {...req.body.mushroom}, {runValidators: true, new: true})
+    res.redirect(`/mushrooms/${mushroom._id}`)
 })
 
 
