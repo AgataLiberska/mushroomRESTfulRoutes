@@ -9,7 +9,10 @@
     <h1>All Mushrooms</h1>
     <ul>
         <% for (let mushroom of mushrooms) { %> 
-            <li><%= mushroom.title %></li>
+            <li>
+                <a href="/mushrooms/<%=mushroom._id%>"><%= mushroom.title %>
+                </a>
+            </li>
         <% } %>
     </ul>
 </body>

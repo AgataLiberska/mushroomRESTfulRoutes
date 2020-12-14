@@ -30,6 +30,11 @@ app.get('/mushrooms', async (req, res) => {
     res.render('mushrooms/index', { mushrooms })
 })
 
+app.get('/mushrooms/:id', async (req, res) => {
+    const mushroom = await Mushroom.findById(req.params.id)
+    res.render('mushrooms/show', { mushroom })
+})
+
 app.listen(3000, () => {
     console.log('Connected to server!')
 })
