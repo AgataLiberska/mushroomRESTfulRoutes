@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a new mushroom</title>
+</head>
+<body>
+    <h1>So, you found a mushroom?</h1>
+    <form action="/mushrooms" method="POST">
+        <div>
+            <label for="title">Mushroom species</label>
+            <input type="text" id="title" name="mushroom[title]" placeholder="Species">
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input type="text" name="mushroom[location]" placeholder="Where did you find it?">
+        </div>
+        <div>
+            <label for="dateFound">Date found</label>
+            <input type="datetime-local" id="dateFound" name="mushroom[dateFound]">
+        </div>
+        <div>
+            <p>This mushroom is:</p>
+            <label for="edible">edible</label>
+            <input type="radio" name="mushroom[edible]" value="true" id="edible">
+            <label for="inedible">inedible</label>
+            <input type="radio" id="inedible" name="mushroom[edible]" value="false">
+        </div>
+        <button>Add new Mushroom</button>
+    </form>
+    <footer>
+        <a href="/">Home</a>
+        <a href="/mushrooms">All Mushrooms</a>
+    </footer>
+</body>
+</html>
