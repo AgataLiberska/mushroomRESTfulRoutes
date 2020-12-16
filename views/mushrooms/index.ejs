@@ -1,10 +1,23 @@
 <% layout('layouts/boilerplate') %>
-    <h1>All Mushrooms</h1>
-    <ul>
-        <% for (let mushroom of mushrooms) { %> 
-            <li>
-                <a href="/mushrooms/<%=mushroom._id%>"><%= mushroom.title %>
-                </a>
-            </li>
+
+<div class="container my-5">
+    <h1 class="text-center">All Mushrooms</h1>
+    <div class="col-md-8 offset-2">
+        <% for (let mushroom of mushrooms) { %>
+            <div class="p-2">
+                <div class="card">
+                    <img src="<%= mushroom.image %>" class="card-img-top" alt="<%= mushroom.title %> image">
+                    <div class="card-body d-flex justify-content-between">
+                        <h5 class="card-title"><%= mushroom.title %></h5>
+                        <a href="/mushrooms/<%=mushroom._id%>" class="btn btn-primary">See details</a>
+                    </div>
+                </div>
+
+            </div>
         <% } %>
-    </ul>
+    </div>
+
+</div>
+
+
+
