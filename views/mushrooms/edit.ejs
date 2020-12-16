@@ -1,27 +1,34 @@
 <% layout('layouts/boilerplate') %>
-    <h1>You can edit your mushroom memories here</h1>
+
+<div class="container my-5 col-md-6 offset-3">
+    <h1 class="text-center mb-5">Edit your mushroom memories</h1>
     <form action="/mushrooms/<%=mushroom._id%>?_method=PUT" method="POST">
-        <div>
-            <label for="title">Mushroom species</label>
-            <input type="text" id="title" name="mushroom[title]" placeholder="Species" value="<%=mushroom.title%>">
+        <div class="mb-3">
+            <label for="title" class="form-label">Mushroom species</label>
+            <input type="text" id="title" name="mushroom[title]" placeholder="Species" class="form-control" value="<%=mushroom.title%>">
         </div>
-        <div>
-            <label for="location">Location</label>
-            <input type="text" name="mushroom[location]" placeholder="Where did you find it?" value="<%=mushroom.location%>">
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="mushroom[location]" placeholder="Where did you find it?" class="form-control" value="<%=mushroom.location%>">
         </div>
-        <div>
-            <label for="dateFound">Date found</label>
-            <input type="datetime-local" id="dateFound" name="mushroom[dateFound]" value="<%=mushroom.dateFound%>">
+        <div class="mb-3">
+            <label for="dateFound" class="form-label">Date found</label>
+            <input type="date" id="dateFound" name="mushroom[dateFound]" class="form-control" value="<%=mushroom.dateFound%>">
         </div>
-        <div>
+        <div class="mb-3">
             <p>This mushroom is:</p>
-            <label for="edible">edible</label>
-            <input type="radio" name="mushroom[edible]" value="true" id="edible"
-                <%= mushroom.edible === true ? "checked" : "" %>>
-            <label for="inedible">inedible</label>
-            <input type="radio" id="inedible" name="mushroom[edible]" value="false"
-                <%= mushroom.edible === false ? "checked" : "" %>>
+                <label for="edible" class="form-label px-2">edible</label>
+                <input type="radio" name="mushroom[edible]" value="true" id="edible" <%= mushroom.edible === true ? "checked" : "" %>>
+                <label for="inedible" class="form-label px-2">inedible</label>
+                <input type="radio" id="inedible" name="mushroom[edible]" value="false" <%= mushroom.edible === false ? "checked" : "" %>>
         </div>
-        <button>Save your changes</button>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image address</label>
+            <input type="text" id="image" name="mushroom[image]" class="form-control" value="<%=mushroom.image%>">
+        </div>
+        <button class="btn btn-success w-100 my-4">Save changes</button>
     </form>
-    <a href="/mushrooms/<%=mushroom.id%>">Cancel</a>
+    <a href="/mushrooms/<%=mushroom._id%>" class="btn btn-secondary w-100">Cancel</a>
+
+</div>
+
