@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit <%= mushroom.title %></title>
-</head>
-<body>
+<% layout('layouts/boilerplate') %>
     <h1>You can edit your mushroom memories here</h1>
     <form action="/mushrooms/<%=mushroom._id%>?_method=PUT" method="POST">
         <div>
@@ -32,5 +25,3 @@
         <button>Save your changes</button>
     </form>
     <a href="/mushrooms/<%=mushroom.id%>">Cancel</a>
-</body>
-</html>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a new mushroom</title>
-</head>
-<body>
+<% layout('layouts/boilerplate') %>
     <h1>So, you found a mushroom?</h1>
     <form action="/mushrooms" method="POST">
         <div>
@@ -29,9 +22,3 @@
         </div>
         <button>Add new Mushroom</button>
     </form>
-    <footer>
-        <a href="/">Home</a>
-        <a href="/mushrooms">All Mushrooms</a>
-    </footer>
-</body>
-</html>

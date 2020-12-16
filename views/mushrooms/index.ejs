@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Mushrooms</title>
-</head>
-<body>
+<% layout('layouts/boilerplate') %>
     <h1>All Mushrooms</h1>
     <ul>
         <% for (let mushroom of mushrooms) { %> 
@@ -15,5 +8,3 @@
             </li>
         <% } %>
     </ul>
-</body>
-</html>

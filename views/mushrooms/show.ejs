@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= mushroom.title %></title>
-</head>
-<body>
+<% layout('layouts/boilerplate') %>
     <h1><%= mushroom.title %></h1>
 
     <p>This mushroom was found in <%= mushroom.location %> on <%= mushroom.dateFound %>.</p>
@@ -21,10 +14,3 @@
     <form action="/mushrooms/<%=mushroom._id%>?_method=DELETE" method="POST">
         <button>Delete Mushroom</button>
     </form>
-    
-    <footer>
-        <a href="/">Home</a>
-        <a href="/mushrooms">All Mushrooms</a>
-    </footer>
-</body>
-</html>
