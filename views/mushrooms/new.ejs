@@ -1,24 +1,31 @@
 <% layout('layouts/boilerplate') %>
-    <h1>So, you found a mushroom?</h1>
+<div class="container my-5 col-md-6 offset-3">
+    <h1 class="text-center mb-5">Found a mushroom?</h1>
     <form action="/mushrooms" method="POST">
-        <div>
-            <label for="title">Mushroom species</label>
-            <input type="text" id="title" name="mushroom[title]" placeholder="Species">
+        <div class="mb-3">
+            <label for="title" class="form-label">Mushroom species</label>
+            <input type="text" id="title" name="mushroom[title]" placeholder="Species" class="form-control">
         </div>
-        <div>
-            <label for="location">Location</label>
-            <input type="text" name="mushroom[location]" placeholder="Where did you find it?">
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="mushroom[location]" placeholder="Where did you find it?" class="form-control">
         </div>
-        <div>
-            <label for="dateFound">Date found</label>
-            <input type="datetime-local" id="dateFound" name="mushroom[dateFound]">
+        <div class="mb-3">
+            <label for="dateFound" class="form-label">Date found</label>
+            <input type="date" id="dateFound" name="mushroom[dateFound]" class="form-control">
         </div>
-        <div>
+        <div class="mb-3">
             <p>This mushroom is:</p>
-            <label for="edible">edible</label>
-            <input type="radio" name="mushroom[edible]" value="true" id="edible">
-            <label for="inedible">inedible</label>
-            <input type="radio" id="inedible" name="mushroom[edible]" value="false">
+                <label for="edible" class="form-label px-2">edible</label>
+                <input type="radio" name="mushroom[edible]" value="true" id="edible">
+                <label for="inedible" class="form-label px-2">inedible</label>
+                <input type="radio" id="inedible" name="mushroom[edible]" value="false">
         </div>
-        <button>Add new Mushroom</button>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image address</label>
+            <input type="text" id="image" name="mushroom[image]" class="form-control">
+        </div>
+        <button class="btn btn-success w-100 mt-5">Add new Mushroom</button>
     </form>
+</div>
+
