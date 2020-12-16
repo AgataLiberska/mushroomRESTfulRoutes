@@ -10,7 +10,8 @@ const mushroomSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    edible: Boolean
+    edible: Boolean,
+    image: String,
 })
 
 const Mushroom = mongoose.model('Mushroom', mushroomSchema);

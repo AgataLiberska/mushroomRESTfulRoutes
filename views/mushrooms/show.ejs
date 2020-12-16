@@ -1,16 +1,27 @@
 <% layout('layouts/boilerplate') %>
-    <h1><%= mushroom.title %></h1>
 
-    <p>This mushroom was found in <%= mushroom.location %> on <%= mushroom.dateFound %>.</p>
-    <p>This mushroom is 
-        <% if ( mushroom.edible === true) { %>
-            edible.
-        <% } else { %>
-            not edible.
-        <% } %>
-    </p>
-    <a href="/mushrooms/<%= mushroom._id %>/edit">Edit Mushroom</a>
-    
-    <form action="/mushrooms/<%=mushroom._id%>?_method=DELETE" method="POST">
-        <button>Delete Mushroom</button>
-    </form>
+<div class="container my-3">
+    <div class="card">
+        <img src="<%= mushroom.image %>" class="card-img-top" alt="mushroom-image">
+        <div class="card-body">
+            <h5 class="card-title"><%= mushroom.title %></h5>
+            <p class="card-text">This mushroom was found in <%= mushroom.location %>.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <% if (mushroom.edible === true) { %>
+                    Edible
+                <% } else { %>
+                    Not edible
+                <% } %>       
+            </li>
+            <li class="list-group-item text-muted">Found on: <%= mushroom.dateFound %></li>
+        </ul>
+        <div class="card-body d-flex justify-content-around">
+            <a href="/mushrooms/<%= mushroom._id %>/edit" class="btn btn-success px-5">Edit</a>
+            <form action="/mushrooms/<%=mushroom._id%>?_method=DELETE" method="POST" class="d-inline">
+                <button class="btn btn-danger px-5">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
